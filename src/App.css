@@ -1,0 +1,13 @@
+body {
+  font-family: "Play", serif;
+}
+
+.scroll-bar::-webkit-scrollbar {
+  width: 6px;
+  background-color: inherit;
+}
+
+.scroll-bar::-webkit-scrollbar-thumb {
+  background-color: #aaa;
+  border-radius: 10px;
+}
