@@ -8,7 +8,7 @@ import About from "../pages/about";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/personal-porfolio",
     Component: App,
     children: [
       { index: true, Component: Home },

@@ -1,26 +1,26 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 const menu = [
   {
     Name: "Home",
-    to: "/",
+    to: "/personal-porfolio",
   },
   {
     Name: "About",
-    to: "/about",
+    to: "/personal-porfolio/about",
   },
   {
     Name: "Skills",
-    to: "/skills",
+    to: "/personal-porfolio/skills",
   },
   {
     Name: "Resume",
-    to: "/resume",
+    to: "/personal-porfolio/resume",
   },
   {
     Name: "Projects",
-    to: "/projects",
+    to: "/personal-porfolio/projects",
   },
 ];
 const Header = () => {
@@ -112,6 +112,7 @@ const Header = () => {
                         : ""
                     } block py-2 px-3 justify-center text-gray-900 rounded-sm md:bg-transparent dark:text-gray-200 text-lg font-bold md:p-0 md:hover:text-green-500 hover:bg-green-500 md:hover:bg-inherit`
                   }
+                  end
                 >
                   {item.Name}
                 </NavLink>
