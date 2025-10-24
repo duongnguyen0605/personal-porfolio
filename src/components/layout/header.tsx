@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const menu = [
   {
     Name: "Home",
-    to: "/personal-porfolio",
+    to: "/personal-porfolio/",
   },
   {
     Name: "About",
@@ -23,13 +23,27 @@ const menu = [
     to: "/personal-porfolio/projects",
   },
 ];
-const Header = () => {
+const Header = ({ ref }: { ref: React.RefObject<HTMLDivElement | null> }) => {
   const [isDarkMode, setisDarkMode] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
 
   const changeModeHandler = () => {
-    setisDarkMode(!isDarkMode);
-    document.documentElement.classList.toggle("dark");
+    if (isDarkMode) {
+      document.documentElement.classList.toggle("dark");
+    }
+    if (ref?.current) {
+      ref.current.classList.add(
+        isDarkMode ? "animate-clip-reverse" : "animate-clip"
+      );
+      setTimeout(() => {
+        if (!isDarkMode) {
+          document.documentElement.classList.toggle("dark");
+        }
+        ref?.current?.classList.remove("animate-clip");
+        ref?.current?.classList.remove("animate-clip-reverse");
+        setisDarkMode(!isDarkMode);
+      }, 800);
+    }
   };
 
   const menuHandler = () => {
@@ -40,7 +54,7 @@ const Header = () => {
     <nav className="h-header-heigh">
       <div className="flex flex-wrap md:flex-nowrap items-center justify-between mx-auto h-full">
         <NavLink
-          to={"/"}
+          to={menu[0].to}
           className="flex flex-col  items-center justify-center px-4 h-full"
         >
           <span className="self-center text-[20px] font-semibold whitespace-nowrap dark:text-gray-200">
@@ -68,9 +82,9 @@ const Header = () => {
             >
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M1 1h15M1 7h15M1 13h15"
               />
             </svg>
@@ -98,6 +112,7 @@ const Header = () => {
           <ul className="font-medium flex flex-col justify-center p-4 md:p-0 border border-gray-100 rounded-b-lg md:flex-row md:mt-0 md:border-0 dark:border-gray-500 md:bg-inherit bg-gray-200 dark:bg-gray-400 md:dark:bg-inherit md:h-full h-fit">
             {menu.map((item, index) => (
               <li
+                key={index}
                 className={`${
                   index === 0 ? "" : ""
                 } md:flex md:items-center justify-center md:w-[100px] md:border-gray-300`}
@@ -125,12 +140,12 @@ const Header = () => {
                 onClick={() => changeModeHandler()}
                 className="cursor-pointer md:block hidden "
               >
-                {isDarkMode ? (
-                  <span className="material-symbols-outlined dark:text-gray-200 text-lg font-bold hover:text-green-500">
+                {!isDarkMode ? (
+                  <span className="material-symbols-outlined text-lg font-bold hover:text-green-500">
                     dark_mode
                   </span>
                 ) : (
-                  <span className="material-symbols-outlined hover:text-green-500">
+                  <span className="material-symbols-outlined hover:text-green-500 dark:text-gray-200">
                     light_mode
                   </span>
                 )}

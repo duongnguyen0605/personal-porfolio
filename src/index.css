@@ -30,6 +30,9 @@
   --animate-slide-in-left: slideInLeft 0.8s ease-out forwards;
   --animate-slide-in-right: slideInRight 0.8s ease-out forwards;
   --animate-slide-in-center: slideInCenter 0.8s ease-out forwards;
+  --animate-clip: clip 1s ease-in;
+  --animate-clip-reverse: clipReverse 0.8s ease-in;
+
   @keyframes slideInLeft {
     from {
       transform: translateX(-100%);
@@ -58,6 +61,38 @@
     100% {
       transform: scale(1) translateY(0);
       opacity: 1;
+    }
+  }
+  @keyframes clip {
+    0% {
+      top: 2rem;
+      right: 2.25rem;
+      width: 0;
+      height: 0;
+      clip-path: circle(0rem at center);
+    }
+    100% {
+      top: calc(-250vmax + 2rem);
+      right: calc(-250vmax + 2.25rem);
+      width: 500vmax;
+      height: 500vmax;
+      clip-path: circle(100% at center);
+    }
+  }
+  @keyframes clipReverse {
+    0% {
+      top: calc(-250vmax + 2rem);
+      right: calc(-250vmax + 2.25rem);
+      width: 500vmax;
+      height: 500vmax;
+      clip-path: circle(100% at center);
+    }
+    100% {
+      top: 2rem;
+      right: 2.25rem;
+      width: 0;
+      height: 0;
+      clip-path: circle(0rem at center);
     }
   }
 }

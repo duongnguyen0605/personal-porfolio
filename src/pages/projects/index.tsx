@@ -79,8 +79,11 @@ const Projects = () => {
   return (
     <div className="flex flex-col gap-8 flex-1">
       <Title title="My Projects" />
-      {projects.map((project) => (
-        <div className="bg-gray-50 dark:bg-gray-300 rounded-2xl p-4 flex flex-col gap-2 text-gray-600 xl:text-[1.125rem] text-base animate-slide-in-center">
+      {projects.map((project, index) => (
+        <div
+          key={index}
+          className="bg-gray-50 dark:bg-gray-300 rounded-2xl p-4 flex flex-col gap-2 text-gray-600 xl:text-[1.125rem] text-base animate-slide-in-center"
+        >
           <h3 className="text-gray-900">{project.name}</h3>
           <p>
             <b>Descriptoin:</b> {project.description}
@@ -89,7 +92,7 @@ const Projects = () => {
             <b>Responsibilities:</b>
             <ul className="list-disc pl-4">
               {project.responsibilities.map((item) => (
-                <li>{item}</li>
+                <li key={item}>{item}</li>
               ))}
             </ul>
           </div>
