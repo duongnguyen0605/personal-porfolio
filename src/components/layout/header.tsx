@@ -1,31 +1,33 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { ROUTE_PATHS } from "../../constants";
 
-const menu = [
-  {
-    Name: "Home",
-    to: "/personal-porfolio/",
-  },
-  {
-    Name: "About",
-    to: "/personal-porfolio/about",
-  },
-  {
-    Name: "Skills",
-    to: "/personal-porfolio/skills",
-  },
-  {
-    Name: "Resume",
-    to: "/personal-porfolio/resume",
-  },
-  {
-    Name: "Projects",
-    to: "/personal-porfolio/projects",
-  },
-];
 const Header = ({ ref }: { ref: React.RefObject<HTMLDivElement | null> }) => {
   const [isDarkMode, setisDarkMode] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
+
+  const menu = [
+    {
+      Name: "Home",
+      to: ROUTE_PATHS.PERSONAL_PORFOLIO,
+    },
+    {
+      Name: "About",
+      to: `${ROUTE_PATHS.PERSONAL_PORFOLIO}${ROUTE_PATHS.ABOUT}`,
+    },
+    {
+      Name: "Skills",
+      to: `${ROUTE_PATHS.PERSONAL_PORFOLIO}${ROUTE_PATHS.SKILLS}`,
+    },
+    {
+      Name: "Resume",
+      to: `${ROUTE_PATHS.PERSONAL_PORFOLIO}${ROUTE_PATHS.RESUME}`,
+    },
+    {
+      Name: "Projects",
+      to: `${ROUTE_PATHS.PERSONAL_PORFOLIO}${ROUTE_PATHS.PROJECTS}`,
+    },
+  ];
 
   const changeModeHandler = () => {
     if (isDarkMode) {

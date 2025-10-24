@@ -173,6 +173,25 @@ const tools = [
   },
 ];
 
+const mySkills = [
+  {
+    name: "Frontend",
+    skills: fontendSkills,
+  },
+  {
+    name: "Verson Control",
+    skills: versionControls,
+  },
+  {
+    name: "Package Control",
+    skills: packageControls,
+  },
+  {
+    name: "Tools",
+    skills: tools,
+  },
+];
+
 const Skills = () => {
   return (
     <div className="">
@@ -181,85 +200,38 @@ const Skills = () => {
         <span className="material-symbols-outlined">book_ribbon</span>
       </p>
       <Title title="My Skills" />
-      <h4 className="my-4 text-lg text-green-600 dark:text-green-300 italic">
-        ---- Frontend ----
-      </h4>
+      {mySkills.map((item, itemIndex) => (
+        <div key={itemIndex}>
+          <h4
+            className={`my-4 text-lg text-green-600 dark:text-green-300 italic ${
+              itemIndex !== 0 && "mt-10"
+            }`}
+          >
+            ---- {item.name} ----
+          </h4>
 
-      <div className="grid  xl:grid-cols-4 md:grid-cols-3 grid-cols-2 2xl:gap-x-20 gap-x-10 gap-y-10">
-        {fontendSkills.map((skill, index) => (
-          <div
-            key={index}
-            className="p-6 rounded-2xl bg-gray-200 dark:bg-gray-300 flex flex-col gap-4 border border-gray-300 animate-slide-in-center"
-          >
-            <img src={skill.icon} alt={skill.alt} className="w-1/2 m-auto" />
-            <div className="flex flex-row justify-between">
-              <p className="font-bold xl:text-lg">{skill.name}</p>
-              <p className="px-2 bg-gray-50 rounded-lg text-gray-500 text-xs font-bold h-fit p-1">
-                {skill.type}
-              </p>
-            </div>
+          <div className="grid xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 2xl:gap-x-20 gap-x-10 gap-y-10">
+            {item.skills.map((skill, index) => (
+              <div
+                key={index}
+                className="p-6 rounded-2xl bg-gray-200 dark:bg-gray-300 flex flex-col gap-4 border border-gray-300 animate-slide-in-center"
+              >
+                <img
+                  src={skill.icon}
+                  alt={skill.alt}
+                  className="w-1/2 m-auto"
+                />
+                <div className="flex flex-row justify-between">
+                  <p className="font-bold xl:text-lg">{skill.name}</p>
+                  <p className="px-2 bg-gray-50 rounded-lg text-gray-500 text-xs font-bold h-fit p-1">
+                    {skill.type}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-
-      <h4 className="mb-4 mt-12 text-lg text-green-600 dark:text-green-300 italic">
-        ---- Verson Control ----
-      </h4>
-      <div className="grid  xl:grid-cols-4 md:grid-cols-3 grid-cols-2 2xl:gap-x-20 gap-x-10 gap-y-10">
-        {versionControls.map((skill, index) => (
-          <div
-            key={index}
-            className="p-6 rounded-2xl bg-gray-200 dark:bg-gray-300 flex flex-col gap-4 border border-gray-300 animate-slide-in-center"
-          >
-            <img src={skill.icon} alt={skill.alt} className="w-1/2 m-auto" />
-            <div className="flex flex-row justify-between">
-              <p className="font-bold xl:text-lg">{skill.name}</p>
-              <p className="px-2 bg-gray-50 rounded-lg text-gray-500 text-xs font-bold h-fit p-1">
-                {skill.type}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
-      <h4 className="mb-4 mt-12 text-lg text-green-600 dark:text-green-300 italic">
-        ---- Package Control ----
-      </h4>
-      <div className="grid  xl:grid-cols-4 md:grid-cols-3 grid-cols-2 2xl:gap-x-20 gap-x-10 gap-y-10">
-        {packageControls.map((skill, index) => (
-          <div
-            key={index}
-            className="p-6 rounded-2xl bg-gray-200 dark:bg-gray-300 flex flex-col gap-4 border border-gray-300 animate-slide-in-center"
-          >
-            <img src={skill.icon} alt={skill.alt} className="w-1/2 m-auto" />
-            <div className="flex flex-row justify-between">
-              <p className="font-bold xl:text-lg">{skill.name}</p>
-              <p className="px-2 bg-gray-50 rounded-lg text-gray-500 text-xs font-bold h-fit p-1">
-                {skill.type}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <h4 className="mb-4 mt-12 text-lg text-green-600 dark:text-green-300 italic">
-        ---- Tools ----
-      </h4>
-      <div className="grid  xl:grid-cols-4 md:grid-cols-3 grid-cols-2 2xl:gap-x-20 gap-x-10 gap-y-10">
-        {tools.map((skill, index) => (
-          <div
-            key={index}
-            className="p-6 rounded-2xl bg-gray-200 dark:bg-gray-300 flex flex-col gap-4 border border-gray-300 animate-slide-in-center"
-          >
-            <img src={skill.icon} alt={skill.alt} className="w-1/2 m-auto" />
-            <div className="flex flex-row justify-between">
-              <p className="font-bold xl:text-lg">{skill.name}</p>
-              <p className="px-2 bg-gray-50 rounded-lg text-gray-500 text-xs font-bold h-fit p-1">
-                {skill.type}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
   );
 };

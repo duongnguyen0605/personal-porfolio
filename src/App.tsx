@@ -49,7 +49,7 @@ export const App = () => {
         onClick={handleScrollTop}
         className={`${
           isVisible ? "flex" : "hidden"
-        } fixed bottom-[4.5rem] right-[1.5rem] cursor-pointer size-12 border border-gray-400 flex items-center justify-center rounded-full bg-gray-400 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500`}
+        } fixed md:bottom-[4.5rem] bottom-4 right-[1.5rem] cursor-pointer size-12 border border-gray-400 flex items-center justify-center rounded-full bg-gray-400 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500`}
       >
         <span className="material-symbols-outlined text-gray-800 dark:text-white">
           arrow_upward

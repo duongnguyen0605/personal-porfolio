@@ -5,17 +5,18 @@ import Projects from "../pages/projects";
 import Skills from "../pages/skills";
 import Resume from "../pages/resume";
 import About from "../pages/about";
+import { ROUTE_PATHS } from "../constants";
 
 const router = createBrowserRouter([
   {
-    path: "/personal-porfolio/",
+    path: ROUTE_PATHS.PERSONAL_PORFOLIO,
     Component: App,
     children: [
       { index: true, Component: Home },
-      { path: "projects", Component: Projects },
-      { path: "skills", Component: Skills },
-      { path: "resume", Component: Resume },
-      { path: "about", Component: About },
+      { path: ROUTE_PATHS.PROJECTS, Component: Projects },
+      { path: ROUTE_PATHS.SKILLS, Component: Skills },
+      { path: ROUTE_PATHS.RESUME, Component: Resume },
+      { path: ROUTE_PATHS.ABOUT, Component: About },
     ],
   },
 ]);
