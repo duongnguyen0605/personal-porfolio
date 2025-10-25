@@ -5,6 +5,7 @@ import { ROUTE_PATHS } from "../../constants";
 const Header = ({ ref }: { ref: React.RefObject<HTMLDivElement | null> }) => {
   const [isDarkMode, setisDarkMode] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
+  const [isHandling, setisHandling] = useState(false);
 
   const menu = [
     {
@@ -30,6 +31,7 @@ const Header = ({ ref }: { ref: React.RefObject<HTMLDivElement | null> }) => {
   ];
 
   const changeModeHandler = () => {
+    setisHandling(true);
     if (isDarkMode) {
       document.documentElement.classList.toggle("dark");
     }
@@ -44,12 +46,9 @@ const Header = ({ ref }: { ref: React.RefObject<HTMLDivElement | null> }) => {
         ref?.current?.classList.remove("animate-clip");
         ref?.current?.classList.remove("animate-clip-reverse");
         setisDarkMode(!isDarkMode);
+        setisHandling(false);
       }, 800);
     }
-  };
-
-  const menuHandler = () => {
-    setOpenMenu(!openMenu);
   };
 
   return (
@@ -73,7 +72,7 @@ const Header = ({ ref }: { ref: React.RefObject<HTMLDivElement | null> }) => {
             className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-600 cursor-pointer"
             aria-controls="navbar-default"
             aria-expanded="false"
-            onClick={() => menuHandler()}
+            onClick={() => setOpenMenu(!openMenu)}
           >
             <svg
               className="w-5 h-5"
@@ -94,6 +93,7 @@ const Header = ({ ref }: { ref: React.RefObject<HTMLDivElement | null> }) => {
           <button
             type="button"
             onClick={() => changeModeHandler()}
+            disabled={isHandling}
             className="cursor-pointer md:hidden flex items-center hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:hover:bg-gray-700 dark:focus:ring-gray-600 p-2 rounded-lg"
           >
             {isDarkMode ? (
@@ -107,8 +107,8 @@ const Header = ({ ref }: { ref: React.RefObject<HTMLDivElement | null> }) => {
         </div>
         <div
           className={`${
-            openMenu ? "" : "hidden"
-          } w-full md:block md:w-auto relative z-10 flex flex-col h-full`}
+            openMenu ? "visible opacity-100" : "invisible opacity-0"
+          } w-full md:block md:w-auto relative z-10 flex flex-col h-full transition-all duration-300 ease-in-out md:visible md:opacity-100`}
           id="navbar-default"
         >
           <ul className="font-medium flex flex-col justify-center p-4 md:p-0 border border-gray-100 rounded-b-lg md:flex-row md:mt-0 md:border-0 dark:border-gray-500 md:bg-inherit bg-gray-200 dark:bg-gray-400 md:dark:bg-inherit md:h-full h-fit">
@@ -140,6 +140,7 @@ const Header = ({ ref }: { ref: React.RefObject<HTMLDivElement | null> }) => {
               <button
                 type="button"
                 onClick={() => changeModeHandler()}
+                disabled={isHandling}
                 className="cursor-pointer md:block hidden "
               >
                 {!isDarkMode ? (
