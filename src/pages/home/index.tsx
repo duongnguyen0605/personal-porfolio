@@ -4,52 +4,57 @@ import "./style.css";
 
 const Home = () => {
   return (
-    <div className="flex flex-col lg:flex-row lg:gap-20 gap-10 xl:w-5xl 2xl:w-7xl w-full mx-auto h-fit lg:h-full items-center">
-      <>
-        <div className="flex flex-col gap-8 animate-slide-in-center">
-          <p className="xl:text-3xl text-xl dark:text-gray-200">
-            Hi there, I'm Duong Nguyen, a ...
-          </p>
-          <h1 className="text-gray-900 md:text-4xl lg:text-5xl text-3xl dark:text-gray-200 font-bold">
-            Frontend Developer
-          </h1>
-          <p className="xl:text-3xl text-xl dark:text-gray-200 font-normal">
-            Experienced Frontend Developer with 4 years of experience building
-            scalable, responsive web applications using React and Angular.
-            Skilled in creating intuitive interfaces and optimizing performance.
-            Always eager to learn and refine technical skills to achieve better
-            results.
-          </p>
-          <a href={CV} download className="button w-fit animate-bounce mt-8">
-            <span className="fold"></span>
+    <div className="flex flex-col lg:flex-row lg:gap-20 gap-10 2xl:w-5/6 3xl:mt-48 mt-0 w-full mx-auto items-center">
+      <div className="flex flex-col gap-8 animate-slide-in-center">
+        <p className="xl:text-3xl text-xl dark:text-gray-200">
+          Hi there, I'm Duong Nguyen, a ...
+        </p>
+        <h1 className="text-gray-900 md:text-4xl lg:text-5xl text-3xl dark:text-gray-200 font-bold">
+          Frontend Developer
+        </h1>
+        <p className="xl:text-2xl text-xl dark:text-gray-200 font-normal">
+          Experienced Frontend Developer with 4 years of hands-on experience
+          building scalable, maintainable, and high-performance web applications
+          using React and Angular. Proficient in HTML, CSS, JavaScript, and
+          React. I specialize in developing intuitive user interfaces,
+          implementing reusable component architectures, and optimizing
+          client-side performance. <br />
+          <br />
+          With a strong understanding of frontend best practices, responsive
+          design, accessibility standards, and modern UI/UX principles, I am
+          committed to delivering high-quality user experiences and continuously
+          improving both products and workflows. Let's build something
+          incredible together!
+        </p>
+        <a href={CV} download className="button w-fit animate-bounce mt-8">
+          <span className="fold"></span>
 
-            <div className="points_wrapper">
-              <i className="point"></i>
-              <i className="point"></i>
-              <i className="point"></i>
-              <i className="point"></i>
-              <i className="point"></i>
-              <i className="point"></i>
-              <i className="point"></i>
-              <i className="point"></i>
-              <i className="point"></i>
-              <i className="point"></i>
-            </div>
+          <div className="points_wrapper">
+            <i className="point"></i>
+            <i className="point"></i>
+            <i className="point"></i>
+            <i className="point"></i>
+            <i className="point"></i>
+            <i className="point"></i>
+            <i className="point"></i>
+            <i className="point"></i>
+            <i className="point"></i>
+            <i className="point"></i>
+          </div>
 
-            <span className="inner">
-              <span className="material-symbols-outlined text-3xl!">
-                download
-              </span>
-              Download My CV
+          <span className="inner">
+            <span className="material-symbols-outlined text-3xl!">
+              download
             </span>
-          </a>
-        </div>
-        <img
-          src={Myself}
-          alt=""
-          className="rounded-3xl lg:w-[30rem] lg:h-[26rem] w-full h-fit mx-auto animate-slide-in-center"
-        />
-      </>
+            Download My CV
+          </span>
+        </a>
+      </div>
+      <img
+        src={Myself}
+        alt=""
+        className="rounded-3xl lg:w-[30rem] lg:h-[26rem] w-full h-fit mx-auto animate-slide-in-center"
+      />
     </div>
   );
 };

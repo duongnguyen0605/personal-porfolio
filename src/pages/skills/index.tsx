@@ -21,6 +21,10 @@ import VsCodeIcon from "../../assets/icons/vscode.svg";
 import FigmaIcon from "../../assets/icons/figma.svg";
 import FirebaseIcon from "../../assets/icons/firebase.svg";
 import RxjsIcon from "../../assets/icons/rxjs.svg";
+import ZustandIcon from "../../assets/icons/zustand.svg";
+import ReduxIcon from "../../assets/icons/redux.svg";
+import JestIcon from "../../assets/icons/jest.svg";
+import TestingLibraryIcon from "../../assets/icons/testing-library.png";
 import Title from "../../components/common/title";
 
 const fontendSkills = [
@@ -119,6 +123,30 @@ const fontendSkills = [
     alt: "jasmine-icon",
     name: "Jasmine",
     type: "Testing",
+  },
+  {
+    icon: JestIcon,
+    alt: "jest-icon",
+    name: "Jest",
+    type: "Testing",
+  },
+  {
+    icon: TestingLibraryIcon,
+    alt: "testing-library-icon",
+    name: "React Testing",
+    type: "Testing",
+  },
+  {
+    icon: ZustandIcon,
+    alt: "zustand-icon",
+    name: "Zustand",
+    type: "Global state",
+  },
+  {
+    icon: ReduxIcon,
+    alt: "redux-icon",
+    name: "Redux",
+    type: "Global state",
   },
 ];
 

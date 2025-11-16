@@ -32,6 +32,7 @@
   --animate-slide-in-center: slideInCenter 0.8s ease-out forwards;
   --animate-clip: clip 1s ease-in;
   --animate-clip-reverse: clipReverse 0.8s ease-in;
+  --breakpoint-3xl: 100rem;
 
   @keyframes slideInLeft {
     from {

@@ -62,7 +62,7 @@ const Header = ({ ref }: { ref: React.RefObject<HTMLDivElement | null> }) => {
             Duong Nguyen
           </span>
           <span className="italic text-base text-green-600 dark:text-green-300">
-            -- frontend --
+            -- FE dev --
           </span>
         </NavLink>
         <div className="flex items-center gap-4 px-4">
